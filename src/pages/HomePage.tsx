@@ -156,6 +156,28 @@ export const HomePage: React.FC = () => {
                 <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary/15 rounded-full blur-3xl pointer-events-none" />
                 <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-secondary/20 rounded-full blur-3xl pointer-events-none" />
 
+                {/* Floating Top Badge */}
+                <div className="absolute -top-5 -right-3 z-30 hidden sm:flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-floating border border-slate-100 animate-float">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-100 text-secondary flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 stroke-[2.5]" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-black text-[#1C2434]">100% Stitchless</p>
+                    <p className="text-[10px] font-semibold text-secondary">Phaco Micro-Incision</p>
+                  </div>
+                </div>
+
+                {/* Floating Bottom Badge */}
+                <div className="absolute -bottom-5 -left-3 z-30 hidden sm:flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-floating border border-slate-100 animate-float [animation-delay:2s]">
+                  <div className="w-9 h-9 rounded-xl bg-primary-soft text-primary flex items-center justify-center">
+                    <Award className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-black text-[#1C2434]">Reg. 658/2026</p>
+                    <p className="text-[10px] font-semibold text-primary">Approved Eye Hospital</p>
+                  </div>
+                </div>
+
                 {/* Main Visual Card Frame */}
                 <div className="relative rounded-3xl bg-white border border-slate-200 shadow-floating overflow-hidden">
                   {/* Real Eye Examination Photo */}
