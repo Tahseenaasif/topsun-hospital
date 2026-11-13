@@ -225,3 +225,4 @@ export const FacilityGallery: React.FC = () => {
     </section>
   );
 };
+

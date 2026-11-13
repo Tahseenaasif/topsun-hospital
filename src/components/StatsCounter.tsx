@@ -71,3 +71,4 @@ export const StatsCounter: React.FC = () => {
     </section>
   );
 };
+

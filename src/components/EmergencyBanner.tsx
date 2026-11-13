@@ -32,3 +32,4 @@ export const EmergencyBanner: React.FC = () => {
     </div>
   );
 };
+

@@ -172,3 +172,4 @@ export const IOLComparisonTable: React.FC = () => {
     </section>
   );
 };
+

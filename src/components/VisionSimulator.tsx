@@ -281,3 +281,4 @@ export const VisionSimulator: React.FC = () => {
     </section>
   );
 };
+

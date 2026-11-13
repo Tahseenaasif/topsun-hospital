@@ -206,3 +206,4 @@ export const CataractJourneyTimeline: React.FC = () => {
     </section>
   );
 };
+
