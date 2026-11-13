@@ -37,7 +37,7 @@ const galleryItems: GalleryItem[] = [
     title: 'Optical Biometry & A-Scan Lens Power Station',
     hindiTitle: 'ऑप्टिकल बायोमेट्री और सटीक लेंस माप',
     description: 'Computerized axial length calculation for determining exact intraocular lens power before cataract procedures, ensuring optimal postoperative vision.',
-    image: 'https://images.unsplash.com/photo-1583912267670-6575ad362e49?auto=format&fit=crop&q=80&w=1000',
+    image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80&w=1000',
     badge: 'Sub-Millimeter IOL Precision',
   },
   {

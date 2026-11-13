@@ -31,7 +31,7 @@ export const FACILITIES_DATA: HospitalFacility[] = [
     description: 'Careful pre-operative axial length and keratometry assessment to select the ideal intraocular lens (IOL) power for customized visual outcomes.',
     iconName: 'Target',
     highlight: 'Exact IOL Power',
-    image: 'https://images.unsplash.com/photo-1583912267670-6575ad362e49?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80&w=800',
   },
   {
     id: 'daycare-recovery',

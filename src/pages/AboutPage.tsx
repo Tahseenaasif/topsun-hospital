@@ -151,29 +151,55 @@ export const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Vision */}
-            <div className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-soft">
-              <div className="w-12 h-12 rounded-2xl bg-primary-soft text-primary flex items-center justify-center mb-5">
-                <Target className="w-6 h-6" />
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-soft flex flex-col justify-between overflow-hidden group">
+              <div>
+                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
+                  <img
+                    src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=800"
+                    alt="Compassionate patient vision restoration at TOPSUN Hospital"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <span className="absolute bottom-3 left-3 text-white text-xs font-bold uppercase tracking-wider bg-primary/90 px-2.5 py-1 rounded-full">
+                    Sight Restoration
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <Target className="w-5 h-5 text-primary" />
+                  <h3 className="text-2xl font-black text-[#1C2434]">
+                    Our Vision (हमारा दृष्टिकोण)
+                  </h3>
+                </div>
+                <p className="text-sm sm:text-base text-brandText-muted leading-relaxed">
+                  To be the most trusted and technically proficient eye care institution in northern Bihar, empowering individuals and elderly patients with healthy, clear sight, compassionate care, and transparent clinical excellence.
+                </p>
               </div>
-              <h3 className="text-2xl font-black text-[#1C2434] mb-3">
-                Our Vision (हमारा दृष्टिकोण)
-              </h3>
-              <p className="text-sm sm:text-base text-brandText-muted leading-relaxed">
-                To be the most trusted and technically proficient eye care institution in northern Bihar, empowering individuals and elderly patients with healthy, clear sight, compassionate care, and transparent clinical excellence.
-              </p>
             </div>
 
             {/* Mission */}
-            <div className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-soft">
-              <div className="w-12 h-12 rounded-2xl bg-secondary-soft text-secondary flex items-center justify-center mb-5">
-                <Heart className="w-6 h-6" />
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-soft flex flex-col justify-between overflow-hidden group">
+              <div>
+                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-5 bg-slate-100">
+                  <img
+                    src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&q=80&w=800"
+                    alt="Sterile surgical instrumentation and ophthalmic equipment"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <span className="absolute bottom-3 left-3 text-white text-xs font-bold uppercase tracking-wider bg-secondary/90 px-2.5 py-1 rounded-full">
+                    Surgical Hygiene & Safety
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <Heart className="w-5 h-5 text-secondary" />
+                  <h3 className="text-2xl font-black text-[#1C2434]">
+                    Our Mission (हमारा लक्ष्य)
+                  </h3>
+                </div>
+                <p className="text-sm sm:text-base text-brandText-muted leading-relaxed">
+                  To deliver state-of-the-art phacoemulsification cataract surgery, comprehensive diagnostic ocular screenings, and preventative eye education to every patient in Madhubani, backed by unwavering dedication to patient safety and surgical hygiene.
+                </p>
               </div>
-              <h3 className="text-2xl font-black text-[#1C2434] mb-3">
-                Our Mission (हमारा लक्ष्य)
-              </h3>
-              <p className="text-sm sm:text-base text-brandText-muted leading-relaxed">
-                To deliver state-of-the-art phacoemulsification cataract surgery, comprehensive diagnostic ocular screenings, and preventative eye education to every patient in Madhubani, backed by unwavering dedication to patient safety and surgical hygiene.
-              </p>
             </div>
           </div>
         </div>

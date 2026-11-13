@@ -92,9 +92,9 @@ export const Navbar: React.FC = () => {
         }`}
         aria-label="Main Navigation"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4 lg:gap-8">
           {/* Hospital Logo & Brand */}
-          <Link to="/" className="flex items-center gap-3 group focus:outline-none">
+          <Link to="/" className="flex items-center gap-3 group focus:outline-none shrink-0 mr-4 lg:mr-8 xl:mr-12">
             <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-primary via-primary-light to-[#482da5] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-200 relative overflow-hidden">
               <div className="absolute inset-0 bg-white/10 opacity-30" />
               <Eye className="w-6 h-6 sm:w-7 sm:h-7 text-white stroke-[2.2]" />
@@ -117,15 +117,15 @@ export const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop Nav Items */}
-          <div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
-                  `relative px-3 py-2 rounded-xl text-sm font-semibold transition-all duration-150 flex items-center gap-1.5 ${
+                  `relative px-2.5 xl:px-3 py-2 rounded-xl text-xs xl:text-sm font-semibold transition-all duration-150 flex items-center gap-1.5 whitespace-nowrap ${
                     isActive
-                      ? 'text-primary bg-primary-soft/80'
+                      ? 'text-primary bg-primary-soft/80 font-bold'
                       : 'text-slate-700 hover:text-primary hover:bg-slate-50'
                   }`
                 }
@@ -133,7 +133,7 @@ export const Navbar: React.FC = () => {
                 <span>{item.name}</span>
                 {item.badge && (
                   <span
-                    className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${item.badgeClass}`}
+                    className={`text-[9px] xl:text-[10px] font-bold px-1.5 py-0.2 rounded-full ${item.badgeClass}`}
                   >
                     {item.badge}
                   </span>

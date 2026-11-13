@@ -172,6 +172,25 @@ export const ContactPage: React.FC = () => {
             {/* Location & Map */}
             <div className="lg:col-span-5 space-y-6">
               <div className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-soft">
+                {/* Reception & Registration Desk Photo */}
+                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-5 bg-slate-900 group">
+                  <img
+                    src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800"
+                    alt="TOPSUN Hospital Reception Desk in Madhubani"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+                    <span className="font-bold flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      OPD Helpdesk & Registration
+                    </span>
+                    <span className="text-[10px] bg-white/20 backdrop-blur-md px-2 py-0.5 rounded font-semibold">
+                      Rahika Road
+                    </span>
+                  </div>
+                </div>
+
                 <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                   <div>
                     <h4 className="text-base font-bold text-[#1C2434]">

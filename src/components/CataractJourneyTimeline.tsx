@@ -69,7 +69,7 @@ const journeySteps: Step[] = [
       'A biocompatible, foldable artificial intraocular lens is smoothly injected through the micro-incision. It unfolds naturally inside your eye capsule to deliver permanent crisp clarity.',
     icon: Sparkles,
     highlights: ['Monofocal, Toric, or Multifocal options', 'UV-blocking biocompatible material', 'Lifetime crystal vision'],
-    image: 'https://images.unsplash.com/photo-1583912267670-6575ad362e49?auto=format&fit=crop&q=80&w=600',
+    image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80&w=800',
   },
   {
     step: '05',

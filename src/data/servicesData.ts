@@ -117,7 +117,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     iconName: 'Target',
     benefits: ['Relief from persistent headaches', 'Sharp, comfortable vision', 'Customized progressive or reading lenses'],
     whoNeedsThis: ['Individuals experiencing headache while reading or screen use', 'Children holding books too close'],
-    image: 'https://images.unsplash.com/photo-1583912267670-6575ad362e49?auto=format&fit=crop&q=80&w=600',
+    image: 'https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=600',
   },
   {
     id: 'eye-pressure-assessment',
@@ -165,7 +165,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     iconName: 'Layers',
     benefits: ['Evaluates central and peripheral retina', 'Screening for flashes and floaters', 'Prompt specialist guidance'],
     whoNeedsThis: ['Patients seeing flashes of light, new dark spots, or distorted straight lines'],
-    image: 'https://images.unsplash.com/photo-1583912267670-6575ad362e49?auto=format&fit=crop&q=80&w=600',
+    image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80&w=600',
   },
   {
     id: 'eye-infection-consultation',

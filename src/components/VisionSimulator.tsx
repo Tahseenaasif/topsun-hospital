@@ -1,5 +1,20 @@
 import React, { useState } from 'react';
-import { Eye, AlertTriangle, Sparkles, CheckCircle2, ArrowRight, ShieldCheck, Info, Glasses, Sun, Moon, Focus } from 'lucide-react';
+import {
+  Eye,
+  AlertTriangle,
+  Sparkles,
+  CheckCircle2,
+  ArrowRight,
+  ShieldCheck,
+  Info,
+  Glasses,
+  Sun,
+  Moon,
+  Focus,
+  Car,
+  BookOpen,
+  Scan,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { HOSPITAL_INFO, getWhatsAppUrl } from '../data/hospitalInfo';
 
@@ -40,7 +55,7 @@ const conditions: VisionCondition[] = [
     ],
     recommendation: 'Micro-Incision Phacoemulsification with foldable IOL lens replacement by Dr. J.D. Mandal.',
     doctorNote: 'Cataracts cannot be reversed by eye drops or spectacles. Stitchless Phaco surgery permanently restores optical clarity.',
-    filterClass: 'blur-[2px] brightness-90 contrast-75 sepia-[0.3]',
+    filterClass: 'blur-[2.5px] brightness-90 contrast-75 sepia-[0.35]',
     badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
   },
   {
@@ -88,19 +103,51 @@ const conditions: VisionCondition[] = [
     ],
     recommendation: 'Computerized Autorefraction and precision Toric lenses or customized spectacles.',
     doctorNote: 'Accurate refractive correction eliminates chronic ocular headaches and eye fatigue within 48 hours.',
-    filterClass: 'astigmatism-stretch blur-[1.5px]',
+    filterClass: 'astigmatism-stretch blur-[2px]',
     badgeColor: 'bg-blue-100 text-blue-800 border-blue-200',
+  },
+];
+
+interface TestScene {
+  id: string;
+  name: string;
+  url: string;
+  icon: React.ElementType;
+}
+
+const testScenes: TestScene[] = [
+  {
+    id: 'street',
+    name: 'City Street & Traffic',
+    url: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1200',
+    icon: Car,
+  },
+  {
+    id: 'night',
+    name: 'Night Driving Glare',
+    url: 'https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&q=80&w=1200',
+    icon: Moon,
+  },
+  {
+    id: 'reading',
+    name: 'Reading Text & Book',
+    url: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=1200',
+    icon: BookOpen,
+  },
+  {
+    id: 'chart',
+    name: 'Clinical Eye Chart',
+    url: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1200',
+    icon: Scan,
   },
 ];
 
 export const VisionSimulator: React.FC = () => {
   const [selectedId, setSelectedId] = useState<string>('cataract');
-  const [sliderPosition, setSliderPosition] = useState<number>(50);
+  const [activeSceneId, setActiveSceneId] = useState<string>('street');
 
   const activeCondition = conditions.find((c) => c.id === selectedId) || conditions[1];
-
-  const baseImage =
-    'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200';
+  const activeScene = testScenes.find((s) => s.id === activeSceneId) || testScenes[0];
 
   return (
     <section className="py-16 sm:py-20 bg-slate-50 border-y border-slate-200/80 relative overflow-hidden">
@@ -119,12 +166,12 @@ export const VisionSimulator: React.FC = () => {
             See the World Through Different Eyes
           </h2>
           <p className="mt-3 text-sm sm:text-base text-brandText-muted leading-relaxed">
-            Experience how common eye disorders like Cataracts, Glaucoma, and Diabetic Retinopathy impair daily vision. Compare simulated vision against healthy 20/20 vision below.
+            Experience how common eye disorders like Cataracts, Glaucoma, and Diabetic Retinopathy impair daily vision across realistic real-world scenes.
           </p>
         </div>
 
         {/* Condition Selector Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
           {conditions.map((item) => {
             const isSelected = item.id === selectedId;
             return (
@@ -143,6 +190,31 @@ export const VisionSimulator: React.FC = () => {
           })}
         </div>
 
+        {/* Scene Switcher Bar */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+          <span className="text-xs font-bold text-slate-500 uppercase tracking-wider mr-2">
+            Select View Scene:
+          </span>
+          {testScenes.map((scene) => {
+            const Icon = scene.icon;
+            const isSceneSelected = scene.id === activeSceneId;
+            return (
+              <button
+                key={scene.id}
+                onClick={() => setActiveSceneId(scene.id)}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  isSceneSelected
+                    ? 'bg-secondary text-white shadow-xs'
+                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5" />
+                <span>{scene.name}</span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* Main Simulator Card */}
         <div className="bg-white rounded-3xl border border-slate-200 shadow-floating overflow-hidden grid grid-cols-1 lg:grid-cols-12">
           {/* Visual Simulation Display (Left 7 Cols) */}
@@ -152,19 +224,19 @@ export const VisionSimulator: React.FC = () => {
               {/* Underlying Base Image with Condition Filter */}
               <div className="absolute inset-0 w-full h-full overflow-hidden">
                 <img
-                  src={baseImage}
-                  alt={activeCondition.name}
+                  src={activeScene.url}
+                  alt={`${activeCondition.name} - ${activeScene.name}`}
                   className={`w-full h-full object-cover transition-all duration-500 ${activeCondition.filterClass}`}
                 />
 
                 {/* Glaucoma Tunnel Overlay */}
                 {selectedId === 'glaucoma' && (
-                  <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.92)_75%)]" />
+                  <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.94)_75%)]" />
                 )}
 
                 {/* Diabetic Blotches Overlay */}
                 {selectedId === 'diabetic' && (
-                  <div className="absolute inset-0 pointer-events-none opacity-80 mix-blend-multiply">
+                  <div className="absolute inset-0 pointer-events-none opacity-85 mix-blend-multiply">
                     <div className="absolute top-1/4 left-1/3 w-16 h-16 rounded-full bg-slate-900/90 blur-md" />
                     <div className="absolute top-1/2 right-1/4 w-24 h-24 rounded-full bg-slate-900/85 blur-lg" />
                     <div className="absolute bottom-1/3 left-1/4 w-12 h-12 rounded-full bg-slate-900/95 blur-sm" />
@@ -174,19 +246,22 @@ export const VisionSimulator: React.FC = () => {
 
                 {/* Cataract Milky Overlay */}
                 {selectedId === 'cataract' && (
-                  <div className="absolute inset-0 pointer-events-none bg-amber-900/10 backdrop-blur-[1.5px]" />
+                  <div className="absolute inset-0 pointer-events-none bg-amber-900/15 backdrop-blur-[1.5px]" />
                 )}
 
                 {/* Astigmatism Flare Overlay */}
                 {selectedId === 'astigmatism' && (
-                  <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(255,255,255,0.4)_80%)]" />
+                  <div className="absolute inset-0 pointer-events-none opacity-45 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(255,255,255,0.5)_80%)]" />
                 )}
               </div>
 
               {/* Badges on the image */}
-              <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+              <div className="absolute top-4 left-4 z-20 flex items-center gap-2 flex-wrap">
                 <span className={`px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider shadow-sm border ${activeCondition.badgeColor}`}>
                   {activeCondition.name}
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-black/60 text-white backdrop-blur-md border border-white/20">
+                  Scene: {activeScene.name}
                 </span>
               </div>
 
@@ -196,7 +271,7 @@ export const VisionSimulator: React.FC = () => {
                   <span className="font-hindi font-medium">{activeCondition.hindiName}</span>
                 </div>
                 <span className="text-[11px] text-slate-300 hidden sm:inline">
-                  Interactive simulation preview
+                  Interactive real-world simulation preview
                 </span>
               </div>
             </div>
@@ -281,4 +356,3 @@ export const VisionSimulator: React.FC = () => {
     </section>
   );
 };
-
