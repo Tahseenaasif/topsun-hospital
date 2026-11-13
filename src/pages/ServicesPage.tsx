@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Eye, Search, Filter, ShieldCheck, Sparkles, Calendar, Phone } from 'lucide-react';
+import { Eye, Search, Filter, ShieldCheck, Sparkles, Calendar, Phone, Activity, HelpCircle, CheckCircle2 } from 'lucide-react';
 import { SEOHead } from '../components/SEOHead';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SectionHeading } from '../components/SectionHeading';
 import { ServiceCard } from '../components/ServiceCard';
+import { EyeCheckQuiz } from '../components/EyeCheckQuiz';
+import { EmergencyBanner } from '../components/EmergencyBanner';
 import { SERVICES_DATA, ServiceItem } from '../data/servicesData';
-import { HOSPITAL_INFO } from '../data/hospitalInfo';
+import { HOSPITAL_INFO, getWhatsAppUrl } from '../data/hospitalInfo';
 import { Link } from 'react-router-dom';
 
 export const ServicesPage: React.FC = () => {
@@ -23,7 +25,7 @@ export const ServicesPage: React.FC = () => {
   });
 
   const categories = [
-    { id: 'all', label: 'All Services (18)', count: SERVICES_DATA.length },
+    { id: 'all', label: `All Services (${SERVICES_DATA.length})`, count: SERVICES_DATA.length },
     { id: 'cataract', label: 'Cataract Services', count: SERVICES_DATA.filter((s) => s.category === 'cataract').length },
     { id: 'general', label: 'General Ophthalmology', count: SERVICES_DATA.filter((s) => s.category === 'general').length },
     { id: 'additional', label: 'Additional Eye Care', count: SERVICES_DATA.filter((s) => s.category === 'additional').length },
@@ -45,6 +47,9 @@ export const ServicesPage: React.FC = () => {
         ]}
       />
 
+      {/* Emergency Alert Banner */}
+      <EmergencyBanner />
+
       {/* Breadcrumbs */}
       <div className="bg-slate-50 border-b border-slate-200">
         <Breadcrumbs items={[{ label: 'Eye Care Services', path: '/services' }]} />
@@ -61,7 +66,7 @@ export const ServicesPage: React.FC = () => {
               Eye Care Services at TOPSUN HOSPITAL
             </h1>
             <p className="mt-3.5 text-base sm:text-lg text-brandText-muted leading-relaxed">
-              Explore our comprehensive range of cataract surgeries, diagnostic evaluations, and clinical consultations designed to protect and restore your sight.
+              Explore our comprehensive range of cataract surgeries, diagnostic evaluations, and clinical consultations designed to protect and restore your sight in Madhubani.
             </p>
           </div>
 
@@ -131,6 +136,9 @@ export const ServicesPage: React.FC = () => {
         </div>
       </section>
 
+      {/* ONLINE EYE ASSESSMENT QUIZ */}
+      <EyeCheckQuiz />
+
       {/* Clinical Differentiation & Transparency Notice */}
       <section className="py-12 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -164,4 +172,3 @@ export const ServicesPage: React.FC = () => {
     </div>
   );
 };
-

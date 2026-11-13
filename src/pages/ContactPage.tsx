@@ -14,6 +14,7 @@ import { SEOHead } from '../components/SEOHead';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SectionHeading } from '../components/SectionHeading';
 import { AppointmentForm } from '../components/AppointmentForm';
+import { EmergencyBanner } from '../components/EmergencyBanner';
 import { HOSPITAL_INFO, getWhatsAppUrl } from '../data/hospitalInfo';
 
 export const ContactPage: React.FC = () => {
@@ -35,6 +36,9 @@ export const ContactPage: React.FC = () => {
           'Dr J D Mandal Contact',
         ]}
       />
+
+      {/* Emergency Alert Banner */}
+      <EmergencyBanner />
 
       {/* Breadcrumbs */}
       <div className="bg-slate-50 border-b border-slate-200">

@@ -17,18 +17,29 @@ import {
   Glasses,
   BookOpen,
   EyeOff,
+  Star,
+  Activity,
+  BadgeCheck,
+  MessageCircle,
 } from 'lucide-react';
 import { SEOHead } from '../components/SEOHead';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SectionHeading } from '../components/SectionHeading';
 import { AppointmentForm } from '../components/AppointmentForm';
 import { FAQAccordion } from '../components/FAQAccordion';
+import { EmergencyBanner } from '../components/EmergencyBanner';
+import { VisionSimulator } from '../components/VisionSimulator';
+import { CataractJourneyTimeline } from '../components/CataractJourneyTimeline';
+import { IOLComparisonTable } from '../components/IOLComparisonTable';
+import { DoctorCard } from '../components/DoctorCard';
 import { CATARACT_OVERVIEW } from '../data/cataractData';
 import { HOSPITAL_INFO, getWhatsAppUrl } from '../data/hospitalInfo';
+import { DOCTORS_DATA } from '../data/doctorsData';
 import { FAQS_DATA } from '../data/faqsData';
 
 export const CataractSurgeryPage: React.FC = () => {
   const cataractFaqs = FAQS_DATA.filter((f) => f.category === 'cataract');
+  const leadSurgeons = DOCTORS_DATA.slice(0, 2); // Dr. Mandal & Dr. Khurshid
 
   const symptomIcons: Record<string, React.ElementType> = {
     EyeOff,
@@ -74,6 +85,9 @@ export const CataractSurgeryPage: React.FC = () => {
         schemaData={cataractProcedureSchema}
       />
 
+      {/* Emergency Alert Banner */}
+      <EmergencyBanner />
+
       {/* Breadcrumbs */}
       <div className="bg-slate-50 border-b border-slate-200">
         <Breadcrumbs items={[{ label: 'Cataract Surgery', path: '/cataract-surgery' }]} />
@@ -82,45 +96,89 @@ export const CataractSurgeryPage: React.FC = () => {
       {/* Hero Section for Cataract Page */}
       <section className="relative bg-gradient-to-b from-primary-soft/40 via-white to-white pt-10 pb-16 sm:pb-20 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-soft text-secondary border border-secondary/20 text-xs font-bold uppercase tracking-wider mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Specialized Cataract Centre • Madhubani</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-7 space-y-5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-soft text-secondary border border-secondary/20 text-xs font-bold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Specialized Cataract Centre • Madhubani</span>
+              </div>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1C2434] tracking-tight leading-tight">
+                Phacoemulsification Cataract Surgery at TOPSUN HOSPITAL
+              </h1>
+
+              <p className="text-base sm:text-lg text-brandText-muted leading-relaxed">
+                Safe, stitchless micro-incision lens replacement performed with ultrasound technology, topical eye-drop anesthesia (no painful needles), and continuous anesthesiologist monitoring in Madhubani, Bihar.
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap gap-3 pt-2">
+                <a
+                  href="#consultation-form"
+                  className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-primary text-white text-sm font-bold hover:bg-primary-light shadow-md transition-all active:scale-95"
+                >
+                  <Calendar className="w-4 h-4 mr-2 text-secondary-light" />
+                  <span>Book Cataract Evaluation</span>
+                </a>
+
+                <a
+                  href={getWhatsAppUrl('Hello TOPSUN Hospital, I would like to inquire about Cataract Surgery costs and evaluation with Dr. J.D. Mandal.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-[#25D366] text-white text-sm font-bold hover:bg-[#20ba59] shadow-md transition-all active:scale-95"
+                >
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  <span>Inquire on WhatsApp</span>
+                </a>
+
+                <a
+                  href={`tel:${HOSPITAL_INFO.primaryPhone}`}
+                  className="inline-flex items-center justify-center px-5 py-3.5 rounded-xl border border-slate-300 bg-white text-slate-800 text-sm font-bold hover:bg-slate-50 transition-all"
+                >
+                  <Phone className="w-4 h-4 mr-2 text-primary" />
+                  <span>Call {HOSPITAL_INFO.primaryPhone}</span>
+                </a>
+              </div>
+
+              {/* Key Highlights */}
+              <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-semibold text-slate-700">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
+                  <span>Sub-2.2mm Keyhole</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
+                  <span>Zero Pain Injections</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
+                  <span>Same-Day Discharge</span>
+                </div>
+              </div>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1C2434] tracking-tight leading-tight">
-              Phacoemulsification Cataract Surgery at TOPSUN HOSPITAL
-            </h1>
-
-            <p className="mt-4 text-base sm:text-lg text-brandText-muted leading-relaxed">
-              Safe, micro-incision lens replacement performed with advanced ultrasonic technology, dedicated anesthesiologist monitoring, and compassionate patient care in Madhubani, Bihar.
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href="#consultation-form"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-primary text-white text-sm font-bold hover:bg-primary-light shadow-sm transition-all"
-              >
-                <Calendar className="w-4 h-4 mr-2 text-secondary-light" />
-                <span>Book Cataract Evaluation</span>
-              </a>
-
-              <a
-                href={getWhatsAppUrl('Hello TOPSUN Hospital, I would like to inquire about Cataract Surgery costs and evaluation.')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-[#25D366] text-white text-sm font-bold hover:bg-[#20ba59] shadow-sm transition-all"
-              >
-                <span>Inquire on WhatsApp</span>
-              </a>
-
-              <a
-                href={`tel:${HOSPITAL_INFO.primaryPhone}`}
-                className="inline-flex items-center justify-center px-5 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 text-sm font-bold hover:bg-slate-50 transition-all"
-              >
-                <Phone className="w-4 h-4 mr-2 text-primary" />
-                <span>Call {HOSPITAL_INFO.primaryPhone}</span>
-              </a>
+            {/* Right Photo Card */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-3xl overflow-hidden shadow-floating border border-slate-200 aspect-[4/3] group">
+                <img
+                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1000"
+                  alt="Precision Cataract Surgery Operating Theatre"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 text-white">
+                  <span className="inline-block px-3 py-0.5 rounded-full bg-secondary text-white text-[10px] font-extrabold uppercase tracking-wider mb-2">
+                    Micro-Incision Phaco OT
+                  </span>
+                  <h3 className="text-lg font-black leading-tight">
+                    Laminar Airflow Sterile Operating Suite
+                  </h3>
+                  <p className="text-xs text-slate-200 mt-1">
+                    Equipped with high-frequency ultrasound systems & precision optics for maximum cataract safety.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -155,7 +213,7 @@ export const CataractSurgeryPage: React.FC = () => {
               </h3>
               <ul className="space-y-3">
                 {CATARACT_OVERVIEW.causes.map((cause, idx) => (
-                  <li key={idx} className="bg-white p-3 rounded-xl border border-slate-100 shadow-xs">
+                  <li key={idx} className="bg-white p-3 rounded-2xl border border-slate-100 shadow-xs">
                     <p className="text-xs font-bold text-slate-900">{cause.title}</p>
                     <p className="text-[11px] text-slate-600 mt-0.5">{cause.description}</p>
                   </li>
@@ -165,6 +223,9 @@ export const CataractSurgeryPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* INTERACTIVE VISION SIMULATOR */}
+      <VisionSimulator />
 
       {/* COMMON CATARACT SYMPTOMS */}
       <section className="py-16 bg-brandBgLight border-y border-slate-200/80">
@@ -183,9 +244,9 @@ export const CataractSurgeryPage: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl p-6 border border-slate-200 shadow-soft hover:shadow-premium transition-all"
+                  className="bg-white rounded-3xl p-6 border border-slate-200 shadow-soft hover:shadow-premium transition-all"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary-soft text-primary flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-primary-soft text-primary flex items-center justify-center mb-4">
                     <IconComp className="w-6 h-6" />
                   </div>
                   <h3 className="text-base font-bold text-[#1C2434] mb-2">
@@ -201,94 +262,33 @@ export const CataractSurgeryPage: React.FC = () => {
         </div>
       </section>
 
-      {/* WHAT IS PHACOMULSIFICATION? */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-4 mb-12">
-            <span className="text-xs font-bold text-secondary uppercase tracking-wider bg-secondary-soft px-3.5 py-1.5 rounded-full border border-secondary/20">
-              Gold Standard Technique
-            </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#1C2434]">
-              What is Phacoemulsification (Phaco)?
-            </h2>
-            <p className="text-sm sm:text-base text-slate-700 leading-relaxed text-left sm:text-center">
-              {CATARACT_OVERVIEW.phacoemulsificationExplained}
-            </p>
-          </div>
+      {/* 5-STEP ROADMAP TIMELINE */}
+      <CataractJourneyTimeline />
 
-          {/* Key Advantages Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-secondary flex items-center justify-center mb-3">
-                <Sparkles className="w-5 h-5" />
-              </div>
-              <h4 className="text-base font-bold text-slate-900 mb-2">Micro-Incision (2.2mm)</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Requires only a minute keyhole incision. Because the wound architecture is stepped and self-sealing, traditional surgical stitches are typically not required.
-              </p>
-            </div>
+      {/* IOL COMPARISON TABLE */}
+      <IOLComparisonTable />
 
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-              <div className="w-10 h-10 rounded-xl bg-primary-soft text-primary flex items-center justify-center mb-3">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <h4 className="text-base font-bold text-slate-900 mb-2">Foldable Intraocular Lens</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                A flexible synthetic optic is gently injected through the tiny incision into the natural lens bag, where it unfolds smoothly to restore clear light focusing.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-              <div className="w-10 h-10 rounded-xl bg-accent-soft text-accent flex items-center justify-center mb-3">
-                <Clock className="w-5 h-5" />
-              </div>
-              <h4 className="text-base font-bold text-slate-900 mb-2">Day-Care Procedure</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Surgery typically takes 15 to 25 minutes. Following a brief period of supervised post-op observation, patients return to the comfort of their home the same day.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CATARACT SURGERY STEP-BY-STEP JOURNEY */}
-      <section className="py-16 bg-brandBgLight border-t border-slate-200">
+      {/* MEET SURGICAL SPECIALISTS */}
+      <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionHeading
-            badge="The Clinical Process"
-            badgeHindi="शल्य चिकित्सा प्रक्रिया"
-            title="Your Step-by-Step Cataract Treatment Journey"
-            subtitle="From your initial biometry evaluation to day of surgery and post-operative follow-up, our team guides you with total clarity."
+            badge="Surgical Team"
+            badgeHindi="हमारे विशेषज्ञ सर्जन"
+            title="Experienced Hands for Your Vision Restoration"
+            subtitle="Dr. J.D. Mandal and Dr. Khurshid ensure the highest surgical precision, painless anesthesia, and patient-centered postoperative care."
             badgeColor="primary"
           />
 
-          <div className="space-y-6 max-w-4xl mx-auto">
-            {CATARACT_OVERVIEW.surgeryJourney.map((step) => (
-              <div
-                key={step.step}
-                className="bg-white rounded-2xl border border-slate-200 p-6 shadow-soft flex flex-col md:flex-row gap-5 items-start"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-primary-soft text-primary font-black text-xl flex items-center justify-center shrink-0">
-                  {step.step}
-                </div>
-                <div className="flex-1 space-y-1.5">
-                  <h3 className="text-lg font-bold text-[#1C2434]">{step.title}</h3>
-                  <p className="text-xs sm:text-sm text-brandText-muted leading-relaxed">
-                    {step.description}
-                  </p>
-                  <p className="text-xs font-semibold text-secondary flex items-center gap-1.5 pt-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                    <span>{step.clinicalNote}</span>
-                  </p>
-                </div>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {leadSurgeons.map((doc, idx) => (
+              <DoctorCard key={doc.id} doctor={doc} featured={idx === 0} />
             ))}
           </div>
         </div>
       </section>
 
       {/* RECOVERY & POSTOPERATIVE CARE */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionHeading
             badge="Healing Protocol"
@@ -302,7 +302,7 @@ export const CataractSurgeryPage: React.FC = () => {
             {CATARACT_OVERVIEW.postOpCareGuidelines.map((guide, idx) => (
               <div
                 key={idx}
-                className="bg-slate-50 border border-slate-200/90 rounded-2xl p-5 hover:border-slate-300 transition-colors"
+                className="bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-slate-300 transition-colors shadow-xs"
               >
                 <h4 className="text-sm font-bold text-primary mb-2 flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-secondary" />
@@ -322,14 +322,14 @@ export const CataractSurgeryPage: React.FC = () => {
               <span>Medical Clarity & Realistic Expectations:</span>
             </p>
             <p>
-              Every eye is unique. While phacoemulsification has a remarkably high clinical success profile worldwide, no medical institution can ethically guarantee 100% perfect vision or zero surgical risk. Pre-existing ocular conditions such as diabetic retinopathy, macular changes, or glaucoma may influence the final visual potential. Dr. J.D. Mandal will provide an honest, thorough pre-operative assessment of your visual prognosis.
+              Every eye is unique. While phacoemulsification has a remarkably high clinical success profile worldwide, pre-existing ocular conditions such as diabetic retinopathy, macular changes, or glaucoma may influence the final visual potential. Dr. J.D. Mandal will provide an honest, thorough pre-operative assessment of your visual prognosis.
             </p>
           </div>
         </div>
       </section>
 
       {/* CATARACT FAQS */}
-      <section className="py-16 bg-brandBgLight border-t border-slate-200">
+      <section className="py-16 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionHeading
             badge="Cataract Questions"
@@ -343,7 +343,7 @@ export const CataractSurgeryPage: React.FC = () => {
       </section>
 
       {/* INQUIRY & APPOINTMENT FORM ANCHOR */}
-      <section className="py-16 bg-white border-t border-slate-100" id="consultation-form">
+      <section className="py-16 bg-brandBgLight border-t border-slate-100" id="consultation-form">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <SectionHeading
             badge="Book Evaluation"
@@ -359,4 +359,3 @@ export const CataractSurgeryPage: React.FC = () => {
     </div>
   );
 };
-

@@ -4,6 +4,7 @@ import { SEOHead } from '../components/SEOHead';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SectionHeading } from '../components/SectionHeading';
 import { DoctorCard } from '../components/DoctorCard';
+import { EmergencyBanner } from '../components/EmergencyBanner';
 import { DOCTORS_DATA } from '../data/doctorsData';
 import { HOSPITAL_INFO, getWhatsAppUrl } from '../data/hospitalInfo';
 import { Link } from 'react-router-dom';
@@ -39,6 +40,9 @@ export const DoctorsPage: React.FC = () => {
         ]}
         schemaData={physiciansSchema}
       />
+
+      {/* Emergency Alert Banner */}
+      <EmergencyBanner />
 
       {/* Breadcrumbs */}
       <div className="bg-slate-50 border-b border-slate-200">
