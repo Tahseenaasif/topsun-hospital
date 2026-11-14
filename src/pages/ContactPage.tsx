@@ -76,19 +76,17 @@ export const ContactPage: React.FC = () => {
               </div>
               <h3 className="text-base font-bold text-[#1C2434] mb-1">Telephone Contact</h3>
               <p className="text-xs text-brandText-muted mb-3">Speak directly with our OPD desk</p>
-              <div className="space-y-1">
-                <a
-                  href={`tel:${HOSPITAL_INFO.phones[0]}`}
-                  className="block text-sm font-extrabold text-primary hover:underline"
-                >
-                  +91 {HOSPITAL_INFO.phones[0]}
-                </a>
-                <a
-                  href={`tel:${HOSPITAL_INFO.phones[1]}`}
-                  className="block text-sm font-extrabold text-primary hover:underline"
-                >
-                  +91 {HOSPITAL_INFO.phones[1]}
-                </a>
+              <div className="space-y-1.5">
+                {HOSPITAL_INFO.phones.map((phone, idx) => (
+                  <a
+                    key={idx}
+                    href={`tel:${phone}`}
+                    className="block text-sm font-extrabold text-primary hover:underline"
+                  >
+                    +91 {phone} {idx === 0 && <span className="text-[10px] text-secondary font-semibold">(Calling)</span>}
+                    {idx === 1 && <span className="text-[10px] text-[#25D366] font-semibold">(WhatsApp)</span>}
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -175,18 +173,18 @@ export const ContactPage: React.FC = () => {
                 {/* Reception & Registration Desk Photo */}
                 <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-5 bg-slate-900 group">
                   <img
-                    src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800"
-                    alt="TOPSUN Hospital Reception Desk in Madhubani"
+                    src="/images/hospital/hospital-front.jpg"
+                    alt="TOPSUN Hospital Reception Desk and Building Entrance in Madhubani"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
                     <span className="font-bold flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                      OPD Helpdesk & Registration
+                      Actual Hospital Front & Reception
                     </span>
                     <span className="text-[10px] bg-white/20 backdrop-blur-md px-2 py-0.5 rounded font-semibold">
-                      Rahika Road
+                      Basauli, Rahika Rd
                     </span>
                   </div>
                 </div>

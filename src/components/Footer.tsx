@@ -173,17 +173,15 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-start gap-2.5 text-xs text-slate-300">
               <Phone className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-              <div className="space-y-0.5">
-                <div>
-                  <a href={`tel:${HOSPITAL_INFO.phones[0]}`} className="hover:text-white font-bold">
-                    +91 {HOSPITAL_INFO.phones[0]}
-                  </a>
-                </div>
-                <div>
-                  <a href={`tel:${HOSPITAL_INFO.phones[1]}`} className="hover:text-white font-bold">
-                    +91 {HOSPITAL_INFO.phones[1]}
-                  </a>
-                </div>
+              <div className="space-y-1">
+                {HOSPITAL_INFO.phones.map((phone, idx) => (
+                  <div key={idx}>
+                    <a href={`tel:${phone}`} className="hover:text-white font-bold block">
+                      +91 {phone} {idx === 0 && <span className="text-[10px] text-emerald-400 font-normal">(Calling)</span>}
+                      {idx === 1 && <span className="text-[10px] text-[#25D366] font-normal">(WhatsApp)</span>}
+                    </a>
+                  </div>
+                ))}
               </div>
             </div>
 

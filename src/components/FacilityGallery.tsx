@@ -4,7 +4,7 @@ import { HOSPITAL_INFO } from '../data/hospitalInfo';
 
 interface GalleryItem {
   id: string;
-  category: 'ot' | 'opd' | 'diagnostics' | 'recovery';
+  category: 'hospital' | 'ot' | 'opd' | 'diagnostics' | 'recovery';
   title: string;
   hindiTitle: string;
   description: string;
@@ -13,6 +13,42 @@ interface GalleryItem {
 }
 
 const galleryItems: GalleryItem[] = [
+  {
+    id: 'hospital-building-front',
+    category: 'hospital',
+    title: 'TOPSUN HOSPITAL Exterior & Reception Entrance',
+    hindiTitle: 'टॉपसन हॉस्पिटल मुख्य भवन एवं रिसेप्शन',
+    description: 'Actual exterior photograph of TOPSUN HOSPITAL Advance Eye Care Centre on Rahika Road, Basauli, Madhubani showing hospital entrance, reception desk, and emergency triage station.',
+    image: '/images/hospital/hospital-front.jpg',
+    badge: 'Official Hospital Building',
+  },
+  {
+    id: 'hospital-consultation-team',
+    category: 'hospital',
+    title: 'Consultation Desk & Clinical Medical Team',
+    hindiTitle: 'परामर्श कक्ष एवं मेडिकल टीम',
+    description: 'Senior Consultant Ophthalmologist Dr. J.D. Mandal and clinical colleagues at the hospital OPD consultation desk with blood pressure monitoring and ophthalmic diagnostic tools.',
+    image: '/images/hospital/hospital-team.jpg',
+    badge: 'OPD Consultation Desk',
+  },
+  {
+    id: 'hospital-official-panel-board',
+    category: 'hospital',
+    title: 'Official Registration & Doctors Panel Board',
+    hindiTitle: 'शासकीय निबंधन एवं चिकित्सक बोर्ड',
+    description: 'Government Registration No. 658/2026 official board displaying lead specialists: Dr. J.D. Mandal, Dr. Khurshid, Dr. Ashwini Bhardwaj, and Dr. MD Merajul Hoda.',
+    image: '/images/hospital/hospital-board.jpg',
+    badge: 'Govt Reg. No. 658/2026',
+  },
+  {
+    id: 'hospital-gps-pillar',
+    category: 'hospital',
+    title: 'GPS Verified Highway Landmark (NH 527B)',
+    hindiTitle: 'जीपीएस प्रमाणित हाईवे बोर्ड (NH 527B)',
+    description: 'GPS map camera verified photo on NH 527B, Madhubani (Lat: 26.330266, Long: 85.983871) detailing stitchless Phaco cataract surgery and glaucoma diagnosis.',
+    image: '/images/hospital/gps-pillar.jpg',
+    badge: 'GPS Verified Location',
+  },
   {
     id: 'ot-1',
     category: 'ot',
@@ -70,7 +106,7 @@ const galleryItems: GalleryItem[] = [
 ];
 
 export const FacilityGallery: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'ot' | 'opd' | 'diagnostics' | 'recovery'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'hospital' | 'ot' | 'opd' | 'diagnostics' | 'recovery'>('all');
   const [selectedPhoto, setSelectedPhoto] = useState<GalleryItem | null>(null);
 
   const filteredItems = galleryItems.filter(
@@ -87,17 +123,18 @@ export const FacilityGallery: React.FC = () => {
             <span>State-of-the-Art Infrastructure</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#1C2434] tracking-tight">
-            Our Advanced Eye Care Facilities
+            Our Hospital Premises & Eye Care Facilities
           </h2>
           <p className="mt-3 text-sm sm:text-base text-brandText-muted leading-relaxed">
-            Take a visual tour of TOPSUN HOSPITAL on Rahika Road, Madhubani. Designed for surgical sterility, diagnostic precision, and patient comfort.
+            Take a visual tour of TOPSUN HOSPITAL on Rahika Road, Madhubani. Real photographs of our hospital building, doctor consultation rooms, and modern eye surgical equipment.
           </p>
         </div>
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
           {[
-            { id: 'all', label: 'All Hospital Areas' },
+            { id: 'all', label: 'All Photos' },
+            { id: 'hospital', label: 'Hospital Campus & Team' },
             { id: 'ot', label: 'Surgical Operating OT' },
             { id: 'opd', label: 'Diagnostic OPD Suites' },
             { id: 'diagnostics', label: 'Biometry & Monitoring' },

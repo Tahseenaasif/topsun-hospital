@@ -180,39 +180,65 @@ export const HomePage: React.FC = () => {
 
                 {/* Main Visual Card Frame */}
                 <div className="relative rounded-3xl bg-white border border-slate-200 shadow-floating overflow-hidden">
-                  {/* Real Eye Examination Photo */}
+                  {/* Real TOPSUN Hospital Building Front Photo */}
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-900 group">
                     <img
-                      src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000"
-                      alt="Eye examination using slit lamp at TOPSUN Hospital"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      src="/images/hospital/hospital-front.jpg"
+                      alt="TOPSUN Hospital Advance Eye Care Centre building and reception entrance on Rahika Road, Madhubani"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
                     {/* Top overlay badge */}
                     <div className="absolute top-4 left-4 flex items-center gap-2">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-bold border border-white/20">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-white text-[11px] font-bold border border-white/20">
                         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>Advance Eye Care Centre</span>
+                        <span>Official Hospital Campus</span>
                       </span>
                     </div>
 
                     {/* Bottom overlay info */}
                     <div className="absolute bottom-4 left-4 right-4 text-white">
                       <div className="flex items-center gap-2 mb-1">
-                        <BadgeCheck className="w-4 h-4 text-secondary-light" />
-                        <span className="text-xs font-bold uppercase tracking-wider text-secondary-light">
-                          Dr. J.D. Mandal (MBBS, D.O.M.S.)
+                        <BadgeCheck className="w-4 h-4 text-emerald-400" />
+                        <span className="text-xs font-bold uppercase tracking-wider text-emerald-300">
+                          TOPSUN HOSPITAL • Basauli, Rahika Road
                         </span>
                       </div>
                       <p className="text-sm font-black text-white">
-                        Lead Consultant Ophthalmologist & Phaco Surgeon
+                        Advance Eye Care Centre & Phaco Cataract Surgery
                       </p>
                     </div>
                   </div>
 
-                  {/* Highlights Bar */}
+                  {/* Highlights Bar with Doctor Inset */}
                   <div className="p-5 bg-white space-y-4">
+                    {/* Doctor Mini-Card */}
+                    <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-gradient-to-r from-primary-soft/60 to-emerald-50/60 border border-primary/10">
+                      <img
+                        src="/images/doctors/dr-jd-mandal.jpg"
+                        alt="Dr. J.D. Mandal Senior Consultant Ophthalmologist"
+                        className="w-12 h-12 rounded-xl object-cover object-top border-2 border-white shadow-xs shrink-0"
+                      />
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-xs font-black text-[#1C2434] truncate">
+                            Dr. J.D. Mandal
+                          </span>
+                          <span className="text-[10px] font-extrabold text-secondary bg-secondary-soft px-1.5 py-0.5 rounded">
+                            MBBS, D.O.M.S.
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-600 truncate">
+                          Consultant Ophthalmologist & Eye Surgeon
+                        </p>
+                        <p className="text-[10px] text-emerald-700 font-bold flex items-center gap-1 mt-0.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
+                          OPD: Mon–Sat 9:00 AM – 6:00 PM
+                        </p>
+                      </div>
+                    </div>
+
                     <div className="grid grid-cols-2 gap-3 text-xs">
                       <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100">
                         <div className="flex items-center gap-1 text-amber-500 mb-1">
@@ -237,8 +263,10 @@ export const HomePage: React.FC = () => {
                     {/* Quick Consultation Callout */}
                     <div className="flex items-center justify-between gap-3 pt-2 border-t border-slate-100">
                       <div className="text-xs">
-                        <span className="text-slate-500 block">Consultation Days:</span>
-                        <span className="font-bold text-slate-800">Monday to Saturday</span>
+                        <span className="text-slate-500 block">Helpline / Call:</span>
+                        <a href={`tel:${HOSPITAL_INFO.primaryPhone}`} className="font-extrabold text-primary hover:underline">
+                          +91 {HOSPITAL_INFO.primaryPhone}
+                        </a>
                       </div>
                       <a
                         href={getWhatsAppUrl('Hello TOPSUN Hospital, I would like to book an appointment with Dr. J.D. Mandal.')}
@@ -516,12 +544,16 @@ export const HomePage: React.FC = () => {
                     <div>
                       <p className="font-bold text-slate-800">Direct Helplines:</p>
                       <div className="space-y-0.5">
-                        <a href={`tel:${HOSPITAL_INFO.phones[0]}`} className="block text-primary font-bold hover:underline">
-                          +91 {HOSPITAL_INFO.phones[0]}
-                        </a>
-                        <a href={`tel:${HOSPITAL_INFO.phones[1]}`} className="block text-primary font-bold hover:underline">
-                          +91 {HOSPITAL_INFO.phones[1]}
-                        </a>
+                        {HOSPITAL_INFO.phones.map((phone, idx) => (
+                          <a
+                            key={idx}
+                            href={`tel:${phone}`}
+                            className="block text-primary font-bold hover:underline"
+                          >
+                            +91 {phone} {idx === 0 && <span className="text-[10px] text-secondary font-semibold">(Primary Call)</span>}
+                            {idx === 1 && <span className="text-[10px] text-[#25D366] font-semibold">(WhatsApp)</span>}
+                          </a>
+                        ))}
                       </div>
                     </div>
                   </div>

@@ -149,7 +149,7 @@ export const Navbar: React.FC = () => {
               className="hidden xl:inline-flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-primary px-3 py-2 rounded-xl hover:bg-slate-50 transition-colors"
             >
               <Phone className="w-4 h-4 text-primary" />
-              <span>{HOSPITAL_INFO.phones[1]}</span>
+              <span>{HOSPITAL_INFO.primaryPhone}</span>
             </a>
 
             <Link

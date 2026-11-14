@@ -8,18 +8,18 @@ export const HOSPITAL_INFO: ContactInfo = {
   regNumber: '658/2026',
   website: 'www.topsunhospital.in',
   email: 'topsunhospital@gmail.com',
-  phones: ['9709419467', '9958643862'],
-  primaryPhone: '9709419467',
-  whatsappNumber: '919709419467',
+  phones: ['8826266803', '9958643862', '9709419467'],
+  primaryPhone: '8826266803',
+  whatsappNumber: '919958643862',
   address: {
     street: 'Basauli',
-    road: 'Rahika Road',
+    road: 'Rahika Road (NH 527B)',
     locality: 'Basauli, Rahika Road',
     city: 'Madhubani',
     district: 'Madhubani',
     state: 'Bihar',
     country: 'India',
-    fullAddress: 'Basauli, Rahika Road, Madhubani, Bihar, India',
+    fullAddress: 'Basauli, Rahika Road (NH 527B), Madhubani, Bihar 847121, India',
   },
   timings: {
     opdDays: 'Monday – Saturday',
@@ -31,7 +31,7 @@ export const HOSPITAL_INFO: ContactInfo = {
   googleMapsEmbedUrl:
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114510.4682431681!2d86.00977259999999!3d26.3533816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39edcd0f8bbd6d53%3A0xb3a8265a0c9a41ee!2sMadhubani%2C%20Bihar!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
   googleMapsDirectionsUrl:
-    'https://www.google.com/maps/dir/?api=1&destination=Basauli,+Rahika+Road,+Madhubani,+Bihar,+India',
+    'https://www.google.com/maps/dir/?api=1&destination=26.330266,85.983871',
 };
 
 export const getWhatsAppUrl = (message?: string): string => {

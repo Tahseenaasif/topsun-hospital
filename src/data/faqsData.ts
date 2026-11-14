@@ -41,7 +41,7 @@ export const FAQS_DATA: FAQItem[] = [
     category: 'general',
     question: 'Do I need an appointment before visiting the hospital?',
     answer:
-      'While walk-in patients are welcomed and registered during OPD hours, we strongly recommend scheduling an appointment inquiry in advance on 9709419467 or 9958643862 to reduce waiting times and ensure doctor availability.',
+      'While walk-in patients are welcomed and registered during OPD hours, we strongly recommend scheduling an appointment inquiry in advance on 8826266803 or 9958643862 to reduce waiting times and ensure doctor availability.',
   },
   {
     id: 'faq-7',

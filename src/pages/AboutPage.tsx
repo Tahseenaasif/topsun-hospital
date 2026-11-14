@@ -58,8 +58,8 @@ export const AboutPage: React.FC = () => {
             <div className="lg:col-span-5">
               <div className="relative rounded-3xl overflow-hidden shadow-floating border border-slate-200 aspect-[4/3] group">
                 <img
-                  src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000"
-                  alt="TOPSUN Hospital reception and clinic entrance"
+                  src="/images/hospital/hospital-front.jpg"
+                  alt="TOPSUN Hospital exterior building and reception entrance on Rahika Road, Madhubani"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-5">
@@ -68,8 +68,9 @@ export const AboutPage: React.FC = () => {
                       Madhubani, Bihar
                     </span>
                     <h3 className="text-base font-bold text-white mt-1">
-                      Basauli, Rahika Road
+                      TOPSUN HOSPITAL Building & Reception
                     </h3>
+                    <p className="text-xs text-emerald-300">Basauli, Rahika Road (NH 527B)</p>
                   </div>
                 </div>
               </div>
@@ -198,6 +199,84 @@ export const AboutPage: React.FC = () => {
                 </div>
                 <p className="text-sm sm:text-base text-brandText-muted leading-relaxed">
                   To deliver state-of-the-art phacoemulsification cataract surgery, comprehensive diagnostic ocular screenings, and preventative eye education to every patient in Madhubani, backed by unwavering dedication to patient safety and surgical hygiene.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Verified Facility Highlights */}
+      <section className="py-16 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <SectionHeading
+            badge="Verified Facility"
+            badgeHindi="प्रमाणित अस्पताल परिसर"
+            title="Real Photographs of TOPSUN HOSPITAL"
+            subtitle="Explore actual photos of our clinical consultation chambers, official registration records, and highway location markers in Madhubani."
+            badgeColor="secondary"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="bg-slate-50 rounded-3xl border border-slate-200/90 overflow-hidden shadow-soft hover:shadow-premium transition-all">
+              <div className="aspect-[4/3] w-full overflow-hidden bg-slate-900">
+                <img
+                  src="/images/hospital/hospital-team.jpg"
+                  alt="Dr. J.D. Mandal and clinical colleagues at consultation desk"
+                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6">
+                <span className="text-[10px] font-bold text-secondary uppercase tracking-wider bg-secondary-soft px-2.5 py-0.5 rounded-full">
+                  Doctor Consultation Desk
+                </span>
+                <h4 className="text-lg font-bold text-[#1C2434] mt-2 mb-1.5">
+                  Clinical Examination Chamber
+                </h4>
+                <p className="text-xs text-brandText-muted leading-relaxed">
+                  Senior Consultant Ophthalmologist Dr. J.D. Mandal conducting diagnostic consultations, patient history assessments, and pre-operative evaluations.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-slate-50 rounded-3xl border border-slate-200/90 overflow-hidden shadow-soft hover:shadow-premium transition-all">
+              <div className="aspect-[4/3] w-full overflow-hidden bg-slate-900">
+                <img
+                  src="/images/hospital/hospital-board.jpg"
+                  alt="TOPSUN Hospital official board and doctor panel"
+                  className="w-full h-full object-contain bg-white p-2 hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6">
+                <span className="text-[10px] font-bold text-primary uppercase tracking-wider bg-primary-soft px-2.5 py-0.5 rounded-full">
+                  Government Registration
+                </span>
+                <h4 className="text-lg font-bold text-[#1C2434] mt-2 mb-1.5">
+                  Official Registration No. 658/2026
+                </h4>
+                <p className="text-xs text-brandText-muted leading-relaxed">
+                  Official hospital signboard displaying registered doctors panel (Dr. J.D. Mandal, Dr. Khurshid, Dr. Ashwini Bhardwaj, Dr. MD Merajul Hoda) and helpline contacts.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-slate-50 rounded-3xl border border-slate-200/90 overflow-hidden shadow-soft hover:shadow-premium transition-all">
+              <div className="aspect-[4/3] w-full overflow-hidden bg-slate-900">
+                <img
+                  src="/images/hospital/gps-pillar.jpg"
+                  alt="GPS Geotagged camera photo of hospital landmark on NH 527B"
+                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6">
+                <span className="text-[10px] font-bold text-accent uppercase tracking-wider bg-accent-soft px-2.5 py-0.5 rounded-full">
+                  GPS Geotagged Landmark
+                </span>
+                <h4 className="text-lg font-bold text-[#1C2434] mt-2 mb-1.5">
+                  NH 527B Highway Location Pillar
+                </h4>
+                <p className="text-xs text-brandText-muted leading-relaxed">
+                  GPS-verified landmark pillar along NH 527B in Madhubani (Lat: 26.330266, Long: 85.983871) detailing Phaco cataract treatments and glaucoma management.
                 </p>
               </div>
             </div>
