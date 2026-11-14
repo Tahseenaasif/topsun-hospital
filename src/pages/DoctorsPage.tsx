@@ -28,10 +28,11 @@ export const DoctorsPage: React.FC = () => {
     <div className="flex flex-col">
       <SEOHead
         title="Doctors & Medical Team | TOPSUN HOSPITAL – Eye Care Centre Madhubani"
-        description="Meet the doctors of TOPSUN HOSPITAL, Madhubani. Consultant Ophthalmologist Dr. J.D. Mandal (MBBS, D.O.M.S.), Consultant Anesthesiologist Dr. Khurshid (MBBS, MD), Dr. Ashwini Bhardwaj (MBBS, M.M.C.H.), and Dr. MD Merajul Hoda (MBBS, D.M.CH.)."
+        description="Meet the doctors of TOPSUN HOSPITAL, Madhubani: Consultant Ophthalmologist Dr. J.D. Mandal (MBBS, D.O.M.S.), Consultant Anesthesiologist Dr. Khurshid (MBBS, MD), Medical Superintendent Dr. Shankar (MBBS, D. Ortho), Dr. Ashwini Bhardwaj (MBBS, M.M.C.H.), and Dr. MD Merajul Hoda (MBBS, D.M.CH.)."
         canonicalPath="/doctors"
         keywords={[
           'Dr. J.D. Mandal Ophthalmologist',
+          'Dr. Shankar Medical Superintendent',
           'Eye Specialist in Madhubani',
           'Cataract Surgeon Madhubani',
           'Dr. Khurshid Anesthesiologist',
@@ -69,7 +70,7 @@ export const DoctorsPage: React.FC = () => {
       {/* Doctors Grid */}
       <section className="py-12 sm:py-16 bg-brandBgLight">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {DOCTORS_DATA.map((doctor, index) => (
               <DoctorCard
                 key={doctor.id}

@@ -291,18 +291,18 @@ export const AboutPage: React.FC = () => {
             badge="Clinical Leadership"
             badgeHindi="चिकित्सीय नेतृत्व"
             title="Our Doctors & Medical Officers"
-            subtitle="Qualified healthcare professionals collaborating to deliver safe ocular procedures and comprehensive patient consultations."
+            subtitle="Led by Dr. J.D. Mandal, Medical Superintendent Dr. Shankar, and specialist physicians delivering safe ocular care and clinical governance."
             badgeColor="primary"
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {DOCTORS_DATA.map((doctor) => (
               <div
                 key={doctor.id}
                 className="bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden flex flex-col justify-between hover:shadow-premium transition-all duration-300"
               >
                 <div>
-                  <div className="aspect-[4/3] w-full overflow-hidden bg-slate-900">
+                  <div className="aspect-[4/5] w-full overflow-hidden bg-slate-100 border-b border-slate-100">
                     <img
                       src={doctor.image}
                       alt={doctor.name}

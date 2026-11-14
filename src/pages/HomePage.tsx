@@ -434,11 +434,11 @@ export const HomePage: React.FC = () => {
             badge="Medical Team"
             badgeHindi="हमारे अनुभवी चिकित्सक"
             title="Meet Our Doctors & Specialists"
-            subtitle="Led by Consultant Ophthalmologist Dr. J.D. Mandal and Consultant Anesthesiologist Dr. Khurshid, our clinical team delivers experienced patient care."
+            subtitle="Led by Consultant Ophthalmologist Dr. J.D. Mandal, Medical Superintendent Dr. Shankar, and Consultant Anesthesiologist Dr. Khurshid, our clinical team delivers experienced patient care."
             badgeColor="primary"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {DOCTORS_DATA.map((doctor, index) => (
               <DoctorCard
                 key={doctor.id}

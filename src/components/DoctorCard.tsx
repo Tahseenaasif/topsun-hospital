@@ -48,8 +48,8 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ doctor, featured = false
         </div>
       )}
 
-      {/* Doctor Photo Header */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+      {/* Doctor Photo Header - Clean, un-obscured portrait */}
+      <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100 border-b border-slate-100">
         {doctor.image ? (
           <img
             src={doctor.image}
@@ -67,29 +67,36 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ doctor, featured = false
             </span>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
 
-        {/* Doctor Name & Designation Overlay */}
-        <div className="absolute bottom-4 left-4 right-4 text-white">
-          <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-secondary/90 text-white backdrop-blur-xs mb-1">
+        {/* Top Badges */}
+        <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none z-10">
+          <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-white/95 text-primary backdrop-blur-md shadow-sm border border-slate-200/80">
             {doctor.qualifications}
           </span>
-          <h3 className="text-xl font-black text-white leading-tight">
-            {doctor.name}
-          </h3>
-          <p className="text-xs text-slate-200 font-medium">
-            {doctor.designation}
-          </p>
+          {featured && (
+            <span className="bg-gradient-to-r from-primary to-primary-light text-white text-[10px] font-extrabold px-3 py-1 rounded-full shadow-sm tracking-wider uppercase flex items-center gap-1">
+              <BadgeCheck className="w-3.5 h-3.5 text-secondary-light" />
+              <span>Lead Ophthalmologist</span>
+            </span>
+          )}
         </div>
       </div>
 
-      <div className="p-6 flex flex-col flex-1 justify-between">
+      <div className="p-6 flex flex-col flex-1 justify-between bg-white">
         <div>
-          {/* Department */}
+          {/* Doctor Name & Designation (Crisp, highly readable) */}
           <div className="mb-3">
-            <span className="inline-block text-[11px] font-semibold text-secondary bg-secondary-soft px-3 py-1 rounded-lg border border-secondary/20">
-              {doctor.department}
-            </span>
+            <h3 className="text-xl font-black text-[#1C2434] leading-tight">
+              {doctor.name}
+            </h3>
+            <p className="text-xs font-bold text-secondary mt-1">
+              {doctor.designation}
+            </p>
+            <div className="mt-2.5">
+              <span className="inline-block text-[11px] font-semibold text-primary bg-primary-soft px-3 py-1 rounded-lg border border-primary/20">
+                {doctor.department}
+              </span>
+            </div>
           </div>
 
           {/* Professional Description */}

@@ -21,6 +21,24 @@ export const DOCTORS_DATA: Doctor[] = [
     image: '/images/doctors/dr-jd-mandal.jpg',
   },
   {
+    id: 'dr-shankar',
+    name: 'Dr. Shankar',
+    qualifications: 'MBBS, D. Ortho',
+    designation: 'Medical Superintendent & Consultant',
+    department: 'Hospital Administration & Clinical Orthopedics',
+    focusAreas: [
+      'Hospital Medical Administration & Quality Supervision',
+      'Clinical Governance & Surgical Safety Oversight',
+      'Musculoskeletal Health & Geriatric Mobility Care',
+      'Patient Safety Protocols & OPD Clinical Management',
+    ],
+    description:
+      'Medical Superintendent at TOPSUN HOSPITAL providing administrative leadership, clinical safety oversight, and comprehensive healthcare supervision to ensure highest medical standards in Madhubani.',
+    consultationDays: 'Monday to Saturday (10:00 AM – 5:00 PM)',
+    avatarColor: 'from-[#008B55] to-[#1C2434]',
+    image: '/images/doctors/dr-shankar.jpg',
+  },
+  {
     id: 'dr-khurshid',
     name: 'Dr. Khurshid',
     qualifications: 'MBBS, MD',
@@ -39,24 +57,6 @@ export const DOCTORS_DATA: Doctor[] = [
     image: '/images/doctors/dr-khurshid.jpg',
   },
   {
-    id: 'dr-ashwini-bhardwaj',
-    name: 'Dr. Ashwini Bhardwaj',
-    qualifications: 'MBBS, M.M.C.H.',
-    designation: 'Consultant Physician / Medical Fitness Officer',
-    department: 'Department of Clinical Medicine & Patient Care',
-    focusAreas: [
-      'Pre-Operative Systemic Health Clearance',
-      'Diabetic Blood Sugar & BP Stabilization',
-      'Cardiopulmonary Fitness Checks',
-      'Postoperative Medical Recovery Protocols',
-    ],
-    description:
-      'Consultant Physician managing holistic medical health, diabetes, and hypertension control before surgery to guarantee smooth ophthalmic surgical outcomes.',
-    consultationDays: 'Monday to Saturday (10:00 AM – 4:00 PM)',
-    avatarColor: 'from-[#1C2434] to-[#342078]',
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=700',
-  },
-  {
     id: 'dr-md-merajul-hoda',
     name: 'Dr. MD Merajul Hoda',
     qualifications: 'MBBS, D.M.CH.',
@@ -73,6 +73,24 @@ export const DOCTORS_DATA: Doctor[] = [
     consultationDays: 'Monday to Saturday (9:00 AM – 5:00 PM)',
     avatarColor: 'from-[#342078] to-[#008B55]',
     image: '/images/doctors/dr-merajul-hoda.jpg',
+  },
+  {
+    id: 'dr-ashwini-bhardwaj',
+    name: 'Dr. Ashwini Bhardwaj',
+    qualifications: 'MBBS, M.M.C.H.',
+    designation: 'Consultant Physician / Medical Fitness Officer',
+    department: 'Department of Clinical Medicine & Patient Care',
+    focusAreas: [
+      'Pre-Operative Systemic Health Clearance',
+      'Diabetic Blood Sugar & BP Stabilization',
+      'Cardiopulmonary Fitness Checks',
+      'Postoperative Medical Recovery Protocols',
+    ],
+    description:
+      'Consultant Physician managing holistic medical health, diabetes, and hypertension control before surgery to guarantee smooth ophthalmic surgical outcomes.',
+    consultationDays: 'Monday to Saturday (10:00 AM – 4:00 PM)',
+    avatarColor: 'from-[#1C2434] to-[#342078]',
+    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=700',
   },
 ];
 
